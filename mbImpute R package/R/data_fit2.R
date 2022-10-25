@@ -329,7 +329,7 @@ data_fit2 <- function(y_sim, metadata, D, k, parallel = F, ncores = 1){
         mat_list[[mat_new]] = design_mat_fit
       }
     }else{
-      no_cores <- max(ncores, detectCores() - 1)
+      no_cores <- ncores
       registerDoParallel(cores=no_cores)
       cl <- makeCluster(no_cores, "FORK")
       f <- function(mat_new){
